@@ -17,16 +17,16 @@
     class App
     {
         public static void Run(
-            Uri baseUri, string mongoConnectionString, string mongoDBDatabase, IEnumerable<string> ignoredUserNames)
+            IEnumerable<Uri> baseUris, string mongoConnectionString, string mongoDBDatabase, IEnumerable<string> ignoredUserNames)
         {
             var bootstrapper = new Bootstrapper(
                 new MongoClient(mongoConnectionString).GetDatabase(mongoDBDatabase),
                 new IgnoredUserNamesService(ignoredUserNames));
 
-            using (var host = new NancyHost(bootstrapper, baseUri))
+            using (var host = new NancyHost(bootstrapper, baseUris.ToArray()))
             {
                 host.Start();
-                ColorConsole.WriteLine("Web API hosted at ".Gray(), $"{baseUri}".White());
+                ColorConsole.WriteLine("Web API hosted at ".Gray(), $"{string.Join(",", baseUris.Select(uri => uri.ToString()))}".White());
                 ColorConsole.Write("Powered by ".DarkGray(), " Nancy ".Black().OnWhite());
                 Thread.Sleep(Timeout.Infinite);
             }
