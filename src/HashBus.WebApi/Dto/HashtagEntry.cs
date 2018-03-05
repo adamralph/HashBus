@@ -1,4 +1,4 @@
-namespace HashBus.WebApi
+namespace HashBus.WebApi.Dto
 {
     public class HashtagEntry : IEntry
     {

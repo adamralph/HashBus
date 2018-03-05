@@ -1,4 +1,4 @@
-namespace HashBus.WebApi
+namespace HashBus.WebApi.Dto
 {
     using System;
     using System.Collections.Generic;

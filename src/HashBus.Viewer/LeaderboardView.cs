@@ -7,7 +7,7 @@
     using System.Threading.Tasks;
     using ColoredConsole;
 
-    class LeaderboardView<TEntry> : IRunAsync where TEntry : WebApi.IEntry
+    class LeaderboardView<TEntry> : IRunAsync where TEntry : WebApi.Dto.IEntry
     {
         private static readonly Dictionary<int, string> movementTokens =
             new Dictionary<int, string>
@@ -38,7 +38,7 @@
 
         private readonly string track;
         private readonly int refreshInterval;
-        private readonly IService<string, WebApi.Leaderboard<TEntry>> leaderboards;
+        private readonly IService<string, WebApi.Dto.Leaderboard<TEntry>> leaderboards;
         private readonly bool showPercentages;
         private readonly int verticalPadding;
         private readonly int horizontalPadding;
@@ -47,12 +47,12 @@
         private readonly string name;
         private readonly string itemsName;
 
-        private WebApi.Leaderboard<TEntry> previousLeaderboard = new WebApi.Leaderboard<TEntry>();
+        private WebApi.Dto.Leaderboard<TEntry> previousLeaderboard = new WebApi.Dto.Leaderboard<TEntry>();
 
         public LeaderboardView(
             string track,
             int refreshInterval,
-            IService<string, WebApi.Leaderboard<TEntry>> leaderboards,
+            IService<string, WebApi.Dto.Leaderboard<TEntry>> leaderboards,
             bool showPercentages,
             int verticalPadding,
             int horizontalPadding,
@@ -83,7 +83,7 @@
             Console.CursorVisible = false;
             while (!cancellationToken.IsCancellationRequested)
             {
-                WebApi.Leaderboard<TEntry> currentLeaderboard;
+                WebApi.Dto.Leaderboard<TEntry> currentLeaderboard;
                 try
                 {
                     currentLeaderboard = await leaderboards.GetAsync(track);

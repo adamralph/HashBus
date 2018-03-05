@@ -19,7 +19,7 @@
                 var entries = trackMentions
                     .Where(item => !ignoredUserNamesService.Get().Contains(item.UserMentionScreenName))
                     .GroupBy(mention => mention.UserMentionId)
-                    .Select(g => new UserEntry
+                    .Select(g => new Dto.UserEntry
                     {
                         Id = g.Key,
                         Name = g.First().UserMentionName,
@@ -35,7 +35,7 @@
                     .Take(10)
                     .ToList();
 
-                return new Leaderboard<UserEntry>
+                return new Dto.Leaderboard<Dto.UserEntry>
                 {
                     Entries = entries,
                     Count = trackMentions.Count,

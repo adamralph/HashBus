@@ -19,7 +19,7 @@
                 var entries = trackTweets
                     .Where(item => !ignoredUserNamesService.Get().Contains(item.UserScreenName))
                     .GroupBy(tweet => tweet.UserId)
-                    .Select(g => new UserEntry
+                    .Select(g => new Dto.UserEntry
                     {
                         Id = g.Key,
                         Name = g.First().UserName,
@@ -35,7 +35,7 @@
                     .Take(10)
                     .ToList();
 
-                return new Leaderboard<UserEntry>
+                return new Dto.Leaderboard<Dto.UserEntry>
                 {
                     Entries = entries,
                     Count = trackTweets.Count,

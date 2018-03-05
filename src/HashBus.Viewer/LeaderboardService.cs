@@ -9,7 +9,7 @@
     using Newtonsoft.Json;
     using RestSharp;
 
-    class LeaderboardService<TEntry> : IService<string, WebApi.Leaderboard<TEntry>>
+    class LeaderboardService<TEntry> : IService<string, WebApi.Dto.Leaderboard<TEntry>>
     {
         private readonly IRestClient client;
         private readonly string resource;
@@ -23,7 +23,7 @@
             this.resource = resource;
         }
 
-        public async Task<WebApi.Leaderboard<TEntry>> GetAsync(string key)
+        public async Task<WebApi.Dto.Leaderboard<TEntry>> GetAsync(string key)
         {
             // see https://github.com/NancyFx/Nancy/issues/1154
             key = Uri.EscapeDataString(key.Replace("#", "해시"));
@@ -40,7 +40,7 @@
                 throw new Exception($"The server returned: {(int)response.StatusCode} {response.StatusDescription}", response.ErrorException);
             }
 
-            return JsonConvert.DeserializeObject<WebApi.Leaderboard<TEntry>>(response.Content);
+            return JsonConvert.DeserializeObject<WebApi.Dto.Leaderboard<TEntry>>(response.Content);
         }
     }
 }

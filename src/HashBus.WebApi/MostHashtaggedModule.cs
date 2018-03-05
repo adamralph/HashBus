@@ -18,7 +18,7 @@
                 var entries = trackHashtags
                     .Where(item => !ignoredHashtagsService.Get().Contains(item.Text, StringComparer.OrdinalIgnoreCase))
                     .GroupBy(tweet => tweet.Text, StringComparer.InvariantCultureIgnoreCase)
-                    .Select(g => new HashtagEntry
+                    .Select(g => new Dto.HashtagEntry
                     {
                         Text = g.Key,
                         Count = g.Count(),
@@ -32,7 +32,7 @@
                     .Take(10)
                     .ToList();
 
-                return new Leaderboard<HashtagEntry>
+                return new Dto.Leaderboard<Dto.HashtagEntry>
                 {
                     Entries = entries,
                     Count = trackHashtags.Count,

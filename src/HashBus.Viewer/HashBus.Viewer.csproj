@@ -7,10 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="..\HashBus.WebApi\HashtagEntry.cs" Link="HashtagEntry.cs" />
-    <Compile Include="..\HashBus.WebApi\IEntry.cs" Link="IEntry.cs" />
-    <Compile Include="..\HashBus.WebApi\Leaderboard.cs" Link="Leaderboard.cs" />
-    <Compile Include="..\HashBus.WebApi\UserEntry.cs" Link="UserEntry.cs" />
+    <Compile Include="..\HashBus.WebApi\Dto\HashtagEntry.cs" Link="Dto\HashtagEntry.cs" />
+    <Compile Include="..\HashBus.WebApi\Dto\IEntry.cs" Link="Dto\IEntry.cs" />
+    <Compile Include="..\HashBus.WebApi\Dto\Leaderboard.cs" Link="Dto\Leaderboard.cs" />
+    <Compile Include="..\HashBus.WebApi\Dto\UserEntry.cs" Link="Dto\UserEntry.cs" />
   </ItemGroup>
 
   <ItemGroup>

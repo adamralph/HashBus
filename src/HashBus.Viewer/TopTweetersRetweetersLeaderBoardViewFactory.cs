@@ -1,7 +1,7 @@
 ﻿namespace HashBus.Viewer
 {
     using ColoredConsole;
-    using HashBus.WebApi;
+    using HashBus.WebApi.Dto;
     using RestSharp;
 
     static class TopTweetersRetweetersLeaderBoardViewFactory

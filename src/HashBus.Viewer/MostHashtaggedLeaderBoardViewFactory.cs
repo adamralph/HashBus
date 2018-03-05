@@ -2,7 +2,7 @@
 {
     using System;
     using ColoredConsole;
-    using HashBus.WebApi;
+    using HashBus.WebApi.Dto;
     using RestSharp;
 
     static class MostHashtaggedLeaderBoardViewFactory
