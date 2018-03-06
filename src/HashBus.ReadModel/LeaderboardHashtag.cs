@@ -2,7 +2,7 @@
 {
     using System;
 
-    public class Hashtag
+    public class LeaderboardHashtag
     {
         public DateTime HashtaggedAt { get; set; }
 

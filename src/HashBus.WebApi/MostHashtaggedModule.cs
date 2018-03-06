@@ -8,7 +8,7 @@
 
     public class MostHashtaggedModule : NancyModule
     {
-        public MostHashtaggedModule(IRepository<string, IEnumerable<Hashtag>> hashtags, IIgnoredHashtagsService ignoredHashtagsService)
+        public MostHashtaggedModule(IRepository<string, IEnumerable<LeaderboardHashtag>> hashtags, IIgnoredHashtagsService ignoredHashtagsService)
         {
             this.Get["/most-hashtagged/{track}", true] = async (parameters, __) =>
             {

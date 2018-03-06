@@ -9,7 +9,7 @@
     public class TopRetweetersModule : NancyModule
     {
         public TopRetweetersModule
-            (IRepository<string, IEnumerable<Retweet>> tweets, IIgnoredUserNamesService ignoredUserNamesService)
+            (IRepository<string, IEnumerable<LeaderboardRetweet>> tweets, IIgnoredUserNamesService ignoredUserNamesService)
         {
             this.Get["/top-retweeters/{track}", true] = async (parameters, __) =>
             {

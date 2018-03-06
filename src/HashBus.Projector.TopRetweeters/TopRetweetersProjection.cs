@@ -11,9 +11,9 @@
 
     public class TopRetweetersProjection : IHandleMessages<Twitter.Analyzer.Events.TweetAnalyzed>
     {
-        private readonly IRepository<string, IEnumerable<Retweet>> tweets;
+        private readonly IRepository<string, IEnumerable<LeaderboardRetweet>> tweets;
 
-        public TopRetweetersProjection(IRepository<string, IEnumerable<Retweet>> tweets)
+        public TopRetweetersProjection(IRepository<string, IEnumerable<LeaderboardRetweet>> tweets)
         {
             Guard.AgainstNullArgument(nameof(tweets), tweets);
 
@@ -35,7 +35,7 @@
                 return;
             }
 
-            trackTweets.Add(new Retweet
+            trackTweets.Add(new LeaderboardRetweet
             {
                 RetweetedAt = message.Tweet.CreatedAt,
                 TweetId = message.Tweet.Id,

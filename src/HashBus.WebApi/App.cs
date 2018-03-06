@@ -67,23 +67,23 @@
                 container.Register(this.ignoredUserNamesService);
                 container.Register(this.ignoredHashtagsService);
 
-                container.Register<IRepository<string, IEnumerable<Mention>>>(
-                        new MongoDBListRepository<Mention>(this.mongoDatabase, "most_mentioned__mentions"));
+                container.Register<IRepository<string, IEnumerable<LeaderboardMention>>>(
+                        new MongoDBListRepository<LeaderboardMention>(this.mongoDatabase, "most_mentioned__mentions"));
 
-                container.Register<IRepository<string, IEnumerable<Tweet>>>(
-                        new MongoDBListRepository<Tweet>(this.mongoDatabase, "top_tweeters__tweets"));
+                container.Register<IRepository<string, IEnumerable<LeaderboardTweet>>>(
+                        new MongoDBListRepository<LeaderboardTweet>(this.mongoDatabase, "top_tweeters__tweets"));
 
-                container.Register<IRepository<string, IEnumerable<TweetRetweet>>>(
-                        new MongoDBListRepository<TweetRetweet>(this.mongoDatabase, "top_tweeters_retweeters__tweets_retweets"));
+                container.Register<IRepository<string, IEnumerable<LeaderboardTweetRetweet>>>(
+                        new MongoDBListRepository<LeaderboardTweetRetweet>(this.mongoDatabase, "top_tweeters_retweeters__tweets_retweets"));
 
-                container.Register<IRepository<string, IEnumerable<Retweet>>>(
-                        new MongoDBListRepository<Retweet>(this.mongoDatabase, "top_retweeters__retweets"));
+                container.Register<IRepository<string, IEnumerable<LeaderboardRetweet>>>(
+                        new MongoDBListRepository<LeaderboardRetweet>(this.mongoDatabase, "top_retweeters__retweets"));
 
-                container.Register<IRepository<string, IEnumerable<Retweetee>>>(
-                        new MongoDBListRepository<Retweetee>(this.mongoDatabase, "most_retweeted__retweetees"));
+                container.Register<IRepository<string, IEnumerable<LeaderboardRetweetee>>>(
+                        new MongoDBListRepository<LeaderboardRetweetee>(this.mongoDatabase, "most_retweeted__retweetees"));
 
-                container.Register<IRepository<string, IEnumerable<Hashtag>>>(
-                        new MongoDBListRepository<Hashtag>(this.mongoDatabase, "most_hashtagged__hashtags"));
+                container.Register<IRepository<string, IEnumerable<LeaderboardHashtag>>>(
+                        new MongoDBListRepository<LeaderboardHashtag>(this.mongoDatabase, "most_hashtagged__hashtags"));
             }
 
             protected override void RequestStartup(TinyIoCContainer container, IPipelines pipelines, NancyContext context)

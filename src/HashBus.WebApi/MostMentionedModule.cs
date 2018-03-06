@@ -9,7 +9,7 @@
     public class MostMentionedModule : NancyModule
     {
         public MostMentionedModule(
-            IRepository<string, IEnumerable<Mention>> mentions, IIgnoredUserNamesService ignoredUserNamesService)
+            IRepository<string, IEnumerable<LeaderboardMention>> mentions, IIgnoredUserNamesService ignoredUserNamesService)
         {
             this.Get["/most-mentioned/{track}", true] = async (parameters, __) =>
             {

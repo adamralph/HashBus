@@ -2,7 +2,7 @@
 {
     using System;
 
-    public class Tweet
+    public class LeaderboardTweet
     {
         public DateTime TweetedAt { get; set; }
 

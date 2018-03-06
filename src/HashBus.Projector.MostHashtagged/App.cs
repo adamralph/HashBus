@@ -20,8 +20,8 @@ namespace HashBus.Projector.MostHashtagged
             endpointConfiguration.EnableInstallers();
             endpointConfiguration.UsePersistence<InMemoryPersistence>();
             endpointConfiguration.RegisterComponents(c =>
-                c.RegisterSingleton<IRepository<string, IEnumerable<Hashtag>>>(
-                    new MongoDBListRepository<Hashtag>(mongoDatabase, "most_hashtagged__hashtags")));
+                c.RegisterSingleton<IRepository<string, IEnumerable<LeaderboardHashtag>>>(
+                    new MongoDBListRepository<LeaderboardHashtag>(mongoDatabase, "most_hashtagged__hashtags")));
             endpointConfiguration.ApplyMessageConventions();
             endpointConfiguration.ApplyErrorAndAuditQueueSettings();
             endpointConfiguration.LimitMessageProcessingConcurrencyTo(1);

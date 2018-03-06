@@ -20,8 +20,8 @@ namespace HashBus.Projector.MostMentioned
             endpointConfiguration.EnableInstallers();
             endpointConfiguration.UsePersistence<InMemoryPersistence>();
             endpointConfiguration.RegisterComponents(c =>
-                c.RegisterSingleton<IRepository<string, IEnumerable<Mention>>>(
-                    new MongoDBListRepository<Mention>(mongoDatabase, "most_mentioned__mentions")));
+                c.RegisterSingleton<IRepository<string, IEnumerable<LeaderboardMention>>>(
+                    new MongoDBListRepository<LeaderboardMention>(mongoDatabase, "most_mentioned__mentions")));
             endpointConfiguration.ApplyMessageConventions();
             endpointConfiguration.ApplyErrorAndAuditQueueSettings();
             endpointConfiguration.LimitMessageProcessingConcurrencyTo(1);

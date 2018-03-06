@@ -20,8 +20,8 @@ namespace HashBus.Projector.MostRetweeted
             endpointConfiguration.EnableInstallers();
             endpointConfiguration.UsePersistence<InMemoryPersistence>();
             endpointConfiguration.RegisterComponents(c =>
-                c.RegisterSingleton<IRepository<string, IEnumerable<Retweetee>>>(
-                    new MongoDBListRepository<Retweetee>(mongoDatabase, "most_retweeted__retweetees")));
+                c.RegisterSingleton<IRepository<string, IEnumerable<LeaderboardRetweetee>>>(
+                    new MongoDBListRepository<LeaderboardRetweetee>(mongoDatabase, "most_retweeted__retweetees")));
             endpointConfiguration.ApplyMessageConventions();
             endpointConfiguration.ApplyErrorAndAuditQueueSettings();
             endpointConfiguration.LimitMessageProcessingConcurrencyTo(1);

@@ -11,9 +11,9 @@
 
     public class MostHashtaggedProjection : IHandleMessages<Twitter.Analyzer.Events.TweetAnalyzed>
     {
-        private readonly IRepository<string, IEnumerable<Hashtag>> hashtags;
+        private readonly IRepository<string, IEnumerable<LeaderboardHashtag>> hashtags;
 
-        public MostHashtaggedProjection(IRepository<string, IEnumerable<Hashtag>> hashtags)
+        public MostHashtaggedProjection(IRepository<string, IEnumerable<LeaderboardHashtag>> hashtags)
         {
             Guard.AgainstNullArgument(nameof(hashtags), hashtags);
 
@@ -36,7 +36,7 @@
             }
 
             var newHashtags = message.Tweet.Hashtags.Select(hashtag =>
-                    new Hashtag
+                    new LeaderboardHashtag
                     {
                         HashtaggedAt = message.Tweet.CreatedAt,
                         TweetId = message.Tweet.Id,

@@ -2,9 +2,9 @@
 {
     using System;
 
-    public class TweetRetweet
+    public class LeaderboardRetweetee
     {
-        public DateTime TweetedRetweetedAt { get; set; }
+        public DateTime RetweetedAt { get; set; }
 
         public long TweetId { get; set; }
 

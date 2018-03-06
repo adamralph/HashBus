@@ -20,8 +20,8 @@ namespace HashBus.Projector.TopTweeters
             endpointConfiguration.EnableInstallers();
             endpointConfiguration.UsePersistence<InMemoryPersistence>();
             endpointConfiguration.RegisterComponents(c =>
-                c.RegisterSingleton<IRepository<string, IEnumerable<Tweet>>>(
-                    new MongoDBListRepository<Tweet>(mongoDatabase, "top_tweeters__tweets")));
+                c.RegisterSingleton<IRepository<string, IEnumerable<LeaderboardTweet>>>(
+                    new MongoDBListRepository<LeaderboardTweet>(mongoDatabase, "top_tweeters__tweets")));
             endpointConfiguration.ApplyMessageConventions();
             endpointConfiguration.ApplyErrorAndAuditQueueSettings();
             endpointConfiguration.LimitMessageProcessingConcurrencyTo(1);

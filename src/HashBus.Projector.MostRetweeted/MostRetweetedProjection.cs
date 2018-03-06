@@ -11,9 +11,9 @@
 
     public class MostRetweetedProjection : IHandleMessages<Twitter.Analyzer.Events.TweetAnalyzed>
     {
-        private readonly IRepository<string, IEnumerable<Retweetee>> retweetees;
+        private readonly IRepository<string, IEnumerable<LeaderboardRetweetee>> retweetees;
 
-        public MostRetweetedProjection(IRepository<string, IEnumerable<Retweetee>> retweetees)
+        public MostRetweetedProjection(IRepository<string, IEnumerable<LeaderboardRetweetee>> retweetees)
         {
             Guard.AgainstNullArgument(nameof(retweetees), retweetees);
 
@@ -35,11 +35,11 @@
                 return;
             }
 
-            var retweetees = new List<Retweetee>();
+            var retweetees = new List<LeaderboardRetweetee>();
             var retweet = message.Tweet.RetweetedTweet;
             while (retweet != null)
             {
-                retweetees.Add(new Retweetee
+                retweetees.Add(new LeaderboardRetweetee
                 {
                     RetweetedAt = message.Tweet.CreatedAt,
                     TweetId = retweet.Id,

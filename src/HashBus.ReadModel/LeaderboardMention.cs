@@ -2,7 +2,7 @@
 {
     using System;
 
-    public class Mention
+    public class LeaderboardMention
     {
         public DateTime MentionedAt { get; set; }
 

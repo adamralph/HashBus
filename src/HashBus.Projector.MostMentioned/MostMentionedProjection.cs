@@ -12,9 +12,9 @@
 
     public class MostMentionedProjection : IHandleMessages<TweetAnalyzed>
     {
-        private readonly IRepository<string, IEnumerable<Mention>> mentions;
+        private readonly IRepository<string, IEnumerable<LeaderboardMention>> mentions;
 
-        public MostMentionedProjection(IRepository<string, IEnumerable<Mention>> mentions)
+        public MostMentionedProjection(IRepository<string, IEnumerable<LeaderboardMention>> mentions)
         {
             Guard.AgainstNullArgument(nameof(mentions), mentions);
 
@@ -37,7 +37,7 @@
             }
 
             var newMentions = message.Tweet.UserMentions.Select(userMention =>
-                    new Mention
+                    new LeaderboardMention
                     {
                         MentionedAt = message.Tweet.CreatedAt,
                         TweetId = message.Tweet.Id,

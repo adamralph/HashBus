@@ -2,7 +2,7 @@
 {
     using System;
 
-    public class Retweetee
+    public class LeaderboardRetweet
     {
         public DateTime RetweetedAt { get; set; }
 
